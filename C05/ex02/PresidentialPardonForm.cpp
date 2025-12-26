@@ -21,6 +21,10 @@ PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm&othe
 PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPardonForm&other)
 {
     //std::cout << "PresidentialPardonForm copy assignment operator called." << std::endl;
+    if (this != &other)
+    {
+       return *this;
+    }
     return *this;
 }
 PresidentialPardonForm::~PresidentialPardonForm()
@@ -43,9 +47,9 @@ void PresidentialPardonForm::execute(Bureaucrat const & executor) const
 }
 
 
-std::ostream& operator<<(std::ostream& out, const PresidentialPardonForm& PresidentialPardonForm)
+std::ostream& operator<<(std::ostream& out, const PresidentialPardonForm& ppf)
 {
-    out << PresidentialPardonForm.getName() << ", PresidentialPardonForm status " << PresidentialPardonForm.getStatus() << ", signing grade " 
-        << PresidentialPardonForm.getSignGrade() << " and execution grade " << PresidentialPardonForm.getExecGrade() << " ." << std::endl;
+    out << ppf.getName() << ", PresidentialPardonForm status " << ppf.getStatus() << ", signing grade " 
+        << ppf.getSignGrade() << " and execution grade " << ppf.getExecGrade() << " ." << std::endl;
     return out;
 }
