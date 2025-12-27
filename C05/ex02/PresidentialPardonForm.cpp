@@ -15,7 +15,7 @@ PresidentialPardonForm::PresidentialPardonForm(std::string const& target)
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm&other) 
 : AForm(other), target(other.target)
 {
-    //std::cout << "PresidentialPardonFormzzz copy constructor called." << std::endl;
+    //std::cout << "PresidentialPardonForm  copy constructor called." << std::endl;
 }
 
 PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPardonForm&other)
@@ -53,3 +53,4 @@ std::ostream& operator<<(std::ostream& out, const PresidentialPardonForm& ppf)
         << ppf.getSignGrade() << " and execution grade " << ppf.getExecGrade() << " ." << std::endl;
     return out;
 }
+

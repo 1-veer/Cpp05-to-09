@@ -15,7 +15,7 @@ RobotomyRequestForm::RobotomyRequestForm(std::string const& target)
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm&other) 
 : AForm(other), target(other.target)
 {
-    //std::cout << "RobotomyRequestFormzzz copy constructor called." << std::endl;
+    //std::cout << "RobotomyRequestForm  copy constructor called." << std::endl;
 }
 
 RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm&other)
@@ -45,10 +45,15 @@ void RobotomyRequestForm::execute(Bureaucrat const & executor) const
 
     std::cout << "* Drilling noises *" << std::endl;
     srand(time(0));
-    if (rand() % 2)
+    if (rand() % 2) 
         std::cout << target << " has been robotomized successfully." << std::endl;
     else
         std::cout << "The robotomy on " << target << " has failed." << std::endl;
+    /*
+    X1 = (a*X0 + c) % m , X0 = time(0) = the seed
+    X2 = (a*X1 + c) % m
+    X3 = (a*X2 + c) % m ...
+    */
 
 }
 

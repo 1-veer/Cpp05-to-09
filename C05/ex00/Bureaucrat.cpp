@@ -12,7 +12,7 @@ Bureaucrat::Bureaucrat(std::string const& name, int grade) : name(name)
 
 Bureaucrat::Bureaucrat(const Bureaucrat&other) : name(other.name)
 {
-    //std::cout << "Bureaucratzzz copy constructor called." << std::endl;
+    //std::cout << "Bureaucrat  copy constructor called." << std::endl;
     *this = other;
 }
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat&other)

@@ -15,7 +15,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(std::string const& target)
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm&other) 
 : AForm(other), target(other.target)
 {
-    //std::cout << "ShrubberyCreationFormzzz copy constructor called." << std::endl;
+    //std::cout << "ShrubberyCreationForm  copy constructor called." << std::endl;
 }
 
 ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationForm&other)
@@ -50,19 +50,18 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
         return;
     }
     outfile << "       _-_" << std::endl;
-    outfile << "    /~~   ~~\\" << std::endl;
+    outfile << "    {~~   ~~}" << std::endl;
     outfile << " /~~    ~    ~~\\" << std::endl;
-    outfile << "{               }" << std::endl;
-    outfile << " \\  _-     -_  /" << std::endl;
-    outfile << "   ~  \\\\ //  ~" << std::endl;
-    outfile << "       | |     " << std::endl;
-    outfile << "       | |     " << std::endl;
-    outfile << "      // \\\\" << std::endl;
+    outfile << "{     ~   ~     }" << std::endl;
+    outfile << "{    \\\\/ \\\\/    }" << std::endl;
+    outfile << " \\__  \\\\ //  __/" << std::endl;
+    outfile << "~    ~ | | ~`  " << std::endl;
+    outfile << "    ~` | |  ~    ~" << std::endl;
+    outfile << "  ~    |_|" << std::flush;
 
     outfile.close();
     std::cout << "Shrubbery has been created in " << target + "_shrubbery" << std::endl;
 }
-
 
 std::ostream& operator<<(std::ostream& out, const ShrubberyCreationForm& scf)
 {
