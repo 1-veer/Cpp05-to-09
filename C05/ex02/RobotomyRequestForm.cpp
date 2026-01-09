@@ -54,7 +54,6 @@ void RobotomyRequestForm::execute(Bureaucrat const & executor) const
     X2 = (a*X1 + c) % m
     X3 = (a*X2 + c) % m ...
     */
-
 }
 
 
