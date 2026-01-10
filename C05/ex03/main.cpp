@@ -14,6 +14,13 @@ int main()
     scf = someRandomIntern.makeForm("ShrubberyCreationForm", "Home");
     ppf = someRandomIntern.makeForm("PresidentialPardonForm", "Arthur Dent");
     AForm* unknown = someRandomIntern.makeForm("UnknownForm", "Nobody");    
+    Bureaucrat boss("Boss", 1);
+    if (scf)
+    {
+        boss.signForm(*scf);
+        boss.executeForm(*scf);
+    }
+
     delete rrf;
     delete scf;
     delete ppf;

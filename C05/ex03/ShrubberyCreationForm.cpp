@@ -49,8 +49,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
         std::cerr << "Error creating file!" << std::endl;
         return;
     }
-    outfile << "       _-_" << std::endl;
-    outfile << "    {~~   ~~}" << std::endl;
+    outfile << "     ___-___" << std::endl;
     outfile << " /~~    ~    ~~\\" << std::endl;
     outfile << "{     ~   ~     }" << std::endl;
     outfile << "{    \\\\/ \\\\/    }" << std::endl;
