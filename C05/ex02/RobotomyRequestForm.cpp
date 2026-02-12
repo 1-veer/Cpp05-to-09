@@ -23,7 +23,7 @@ RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm&ot
     //std::cout << "RobotomyRequestForm copy assignment operator called." << std::endl;
     if (this != &other)
     {
-       return *this;
+       AForm::operator=(other);
     }
     return *this;
 }

@@ -24,7 +24,8 @@ int main()
     delete rrf;
     delete scf;
     delete ppf;
-    delete unknown;
+    if (unknown)
+        delete unknown;
     
     return 0;
 }

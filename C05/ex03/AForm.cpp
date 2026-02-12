@@ -16,10 +16,9 @@ AForm::AForm(std::string const& name, int signgrade, int execgrade)
 }
 
 AForm::AForm(const AForm&other) 
-: name(other.name), sign_grade(other.sign_grade), exec_grade(other.exec_grade)
+: name(other.name), status(other.status), sign_grade(other.sign_grade), exec_grade(other.exec_grade)
 {
     //std::cout << "AForm copy constructor called." << std::endl;
-    *this = other;
 }
 
 AForm& AForm::operator=(const AForm&other)

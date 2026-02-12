@@ -23,7 +23,7 @@ PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPard
     //std::cout << "PresidentialPardonForm copy assignment operator called." << std::endl;
     if (this != &other)
     {
-       return *this;
+       AForm::operator=(other);
     }
     return *this;
 }
