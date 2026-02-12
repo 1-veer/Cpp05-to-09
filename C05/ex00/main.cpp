@@ -8,7 +8,7 @@ int main ()
         std::cout << b1 << std::endl;
 
         Bureaucrat b2("Dani", 0); 
-        std::cout << b2 << std::endl; // won't get reached , and the control jumps immediately to the nearest handler (catch)
+        std::cout << b2 << std::endl; // won't get reached , and the control jumps immediately to nearest handler (catch)
     } 
     catch (Bureaucrat::GradeTooHighException &e) 
     {

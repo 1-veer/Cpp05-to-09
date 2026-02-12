@@ -27,6 +27,7 @@ PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPard
     }
     return *this;
 }
+
 PresidentialPardonForm::~PresidentialPardonForm()
 {
     //std::cout << "PresidentialPardonForm destructor called." << std::endl;
@@ -37,7 +38,6 @@ std::string PresidentialPardonForm::getTarget() const
     return target;
 }
 
-
 void PresidentialPardonForm::execute(Bureaucrat const & executor) const
 {   
     if (this->getStatus() == false || executor.getGrade() > this->getExecGrade())
@@ -45,7 +45,6 @@ void PresidentialPardonForm::execute(Bureaucrat const & executor) const
     
     std::cout << this->getTarget() << " has been pardoned by Zaphod Beeblebrox." << std::endl;
 }
-
 
 std::ostream& operator<<(std::ostream& out, const PresidentialPardonForm& ppf)
 {
