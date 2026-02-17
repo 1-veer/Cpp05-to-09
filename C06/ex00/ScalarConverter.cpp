@@ -38,17 +38,6 @@ static bool pseudo_literals(const std::string& literal)
 }
 
 
-static bool has_invalid_leading_zero(const std::string& literal)
-{
-    std::size_t i = 0;
-    if (literal[i] == '+' || literal[i] == '-')
-        ++i;
-    if (i >= literal.size())
-        return false;
-    if (literal[i] == '0' && i + 1 < literal.size() && std::isdigit((literal[i + 1])))
-        return true;
-    return false;
-}
 
 static bool one_char (const std::string& literal)
 {
@@ -76,14 +65,6 @@ void ScalarConverter::convert(const std::string& literal)
     
     if (one_char(literal))
         return;
-
-    if (has_invalid_leading_zero(literal)) {
-        std::cout << "char: impossible\n"
-                  << "int: impossible\n"
-                  << "float: impossible\n"
-                  << "double: impossible\n";
-        return;
-    }
 
     char* endptr = NULL;
     double value = strtod(literal.c_str(), &endptr);

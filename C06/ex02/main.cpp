@@ -3,13 +3,14 @@
 #include "B.hpp"
 #include "C.hpp"
 #include <cstdlib>
-#include <time.h>
+#include <ctime>
+#include <iostream>
 
 Base * generate(void)
 {
-    srand(time(0));
+    std::srand(std::time(0));
     int i;
-    i = rand() % 3;
+    i = std::rand() % 3;
     if (i == 0)
     {
         std::cout << "A was generated" << std::endl;
@@ -44,19 +45,19 @@ void identify(Base& p)
         (void)dynamic_cast<A&>(p);
         std::cout << "A it is" << std::endl;
         return;
-    } catch (std::bad_cast &e) {}
+    } catch (std::exception &e) {}
     
     try {
         (void)dynamic_cast<B&>(p);
         std::cout << "B it is" << std::endl;
         return;
-    } catch (std::bad_cast &e) {}
+    } catch (std::exception &e) {}
     
     try {
         (void)dynamic_cast<C&>(p);
         std::cout << "C it is" << std::endl;
         return;
-    } catch (std::bad_cast &e) {}
+    } catch (std::exception &e) {}
 }
 
 int main()
