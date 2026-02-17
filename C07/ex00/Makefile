@@ -4,7 +4,7 @@ CXXFlags = -Wall -Wextra -Werror -std=c++98
 NAME = ex00
 SRCS = main.cpp  
 all : $(NAME)
-$(NAME) : $(SRCS)
+$(NAME) : $(SRCS) whatever.hpp
 	@echo "\033[33mCompiling [$(NAME)]....\033[0m"
 	@$(CXX) $(CXXFlags) $(SRCS) -o $(NAME)
 	@echo "\033[32m./$(NAME) is ready.\033[0m"
