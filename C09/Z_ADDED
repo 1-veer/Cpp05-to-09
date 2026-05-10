@@ -1,0 +1,15 @@
+ex00 (Bitcoin Exchange): Use std::map.   
+Why: You need to store "date | value" pairs.
+std::map automatically sorts by the date key and gives you access to the lower_bound() method, which makes finding the closest past date trivial.   
+
+
+ex01 (RPN): Use std::list (or std::stack).   
+Why: Reverse Polish Notation is solved using Last-In-First-Out (LIFO) logic.
+You just push numbers to the back and pop them off when you hit an operator.   
+
+
+ex02 (PmergeMe): Use std::vector and std::deque.   
+Why: The Ford-Johnson merge-insert sort requires constantly splitting elements into pairs, sorting those pairs,
+ and doing binary searches for insertions.
+Both of these containers handle index/iterator math well without burning too much execution time.
+
