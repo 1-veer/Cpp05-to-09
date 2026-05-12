@@ -16,13 +16,10 @@ int main(int argc, char *argv[])
 
     
     BitcoinExchange btc;
-    btc.loadingData("data.csv");
-    btc.processingInput(argv[1]);
+    btc.setbtc(btc.loadingData("data.csv"));
+    btc.processingInput(argv[1], btc.getbtc());
 
     return 0;
 }
 
-// Year-Month-Day
-// bad input like 2005-99-99
-/*A valid value must be either a float or a positive integer, between 0 and 1000*/
-// always use the lower date
+// didnt care about screwd up dates like : "2012-11-", "2009-11" or even "2012-2-2" or wtv , i could using a lenght check tho

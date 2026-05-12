@@ -8,7 +8,7 @@
 class BitcoinExchange
 {
     private:
-        std::map<std::string, double> btcchange;    
+        std::map<std::string, double> data;    
 
     public:
     BitcoinExchange();
@@ -17,14 +17,11 @@ class BitcoinExchange
     BitcoinExchange(const BitcoinExchange &other);
     BitcoinExchange &operator=(const BitcoinExchange &other);
 
-    void loadingData(std::string);
-    
-    void processingInput(std::string);
+    std::map<std::string, double>  getbtc(void);
+    void setbtc (std::map<std::string, double> d);
 
-
-
-
-
+    std::map<std::string, double> loadingData(std::string);
+    void processingInput(std::string, const std::map<std::string, double> &);
 
 
 
