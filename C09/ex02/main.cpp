@@ -3,7 +3,8 @@
 int main(int ac, char **av)
 {
     PmergeMe aaa;
-    aaa.Execute_PmergeMe(ac,av);
+    aaa.parsing(ac,av);
+    aaa.Ford_Johnson();
 
     return 0;
 }

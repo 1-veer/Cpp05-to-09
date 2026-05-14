@@ -5,6 +5,7 @@
 #include <sstream>
 #include <vector>
 #include <deque>
+#include <algorithm>
 
 class PmergeMe
 {
@@ -19,5 +20,7 @@ class PmergeMe
     PmergeMe(const PmergeMe &other);
     PmergeMe &operator=(const PmergeMe &other);
 
-    void Execute_PmergeMe(int ac, char **av);
+
+    void parsing (int ac, char **av);
+    void Ford_Johnson();
 };
