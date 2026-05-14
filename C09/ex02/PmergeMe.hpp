@@ -6,7 +6,7 @@
 #include <vector>
 #include <deque>
 #include <algorithm>
-#include <ctime>
+#include <sys/time.h>
 #include <iomanip>
 
 class PmergeMe
@@ -15,7 +15,7 @@ class PmergeMe
         std::vector<int> vec_before;
         std::vector<int> vector;
 
-        std::deque<int> deque_before;
+        std::deque<int> deq_before;
         std::deque<int> deque;
 
 
@@ -27,7 +27,8 @@ class PmergeMe
     PmergeMe &operator=(const PmergeMe &other);
 
 
-    void parsing (int ac, char **av);
-    void Ford_Johnson();
+    bool parsing (int ac, char **av);
+    void Ford_Johnson_vector();
+    void Ford_Johnson_deque();
     void Run_Ford_Johnson();
 };
