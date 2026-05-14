@@ -52,15 +52,16 @@ void PmergeMe::parsing(int ac, char **av)
         while (iss >> str)
         {
             x = check_errors(str);
-            if (x == -1 || std::find(this->vector.begin(), this->vector.end(), x) != this->vector.end()) // error or duplicate
+            if (x == -1 || std::find(this->vec_before.begin(), this->vec_before.end(), x) != this->vec_before.end()) // error or duplicate
             {
                 std::cerr << "Error." << std::endl;
                 return;
             }
 
-            this->vector.push_back(x);
+            this->vec_before.push_back(x);
         }
     }
+    this->vector = this->vec_before;
 }
 
 int is_sorted(std::vector<int> vec)
@@ -99,7 +100,7 @@ void PmergeMe::Ford_Johnson()
     if (!this->vector.empty() && this->vector.size() % 2 == 1) // pulling out the odd one
         odd_one = this->vector.back();
 
-    std::vector<int> vec_before = this->vector;
+    // std::vector<int> vec_before = this->vector;
 
 
     std::cout << std::endl;
@@ -121,7 +122,7 @@ void PmergeMe::Ford_Johnson()
     this->vector = main_chain;
     this->Ford_Johnson();
     main_chain = this->vector;
-    this->vector = vec_before;
+    // this->vector = vec_before;  
     
     std::vector<int> pending;
     for (std::vector<int>::iterator mainchain_it = main_chain.begin(); mainchain_it != main_chain.end(); ++mainchain_it) // we loop thro all the sorted main chain elements to find their match in the pairs to insert that pairs second in the pending list
@@ -155,24 +156,66 @@ void PmergeMe::Ford_Johnson()
 
     for (size_t i = 1; i < jacob_seq.size(); i++)    
     {
-        int currnt_jacob = jacob_seq[i];
+        size_t currnt_jacob = jacob_seq[i];
         if (currnt_jacob > pending.size())   // for example if we have 9 but the jacob is 11
             currnt_jacob = pending.size();   
     
         for (int j = currnt_jacob -1; j >= last_indx; j-- ) // current - 1 is like from b1 to being index 0 and 3 in jacob is inex 2
         {
             int smaller = pending[j];
-            int bigger = whatever
+            int bigger = -67;  //wtv nbr
+            
+            for (std::vector<std::pair<int, int> >::iterator pairs_it = pairs.begin(); pairs_it != pairs.end(); ++pairs_it)
+            {
+                if (pairs_it->second == smaller)
+                {
+                    bigger = pairs_it->first;
+                    break;
+                }
+            }
+            binary_insertion(main_chain, bigger, smaller);
         }
+        last_indx = currnt_jacob;
     }
-    
+
+    if (odd_one != -1)
+    {
+        std::vector<int>::iterator it = std::lower_bound(main_chain.begin(), main_chain.end(), odd_one);
+        main_chain.insert(it , odd_one);    
+    }
 
 
 
-    // loop pairs to find bigger when we have smaller
+
+   
 
 
     this->vector = main_chain;
+}
+
+void PmergeMe::Run_Ford_Johnson()
+{
+    std::cout << "Before: ";
+    for (size_t i = 0; i < this->vec_before.size(); ++i)
+        std::cout << this->vec_before[i] << " ";
+    std::cout << std::endl;
+
+    clock_t start = clock();
+    this->Ford_Johnson();
+    clock_t end = clock();
+    
+    double time = static_cast<double>(end-start) * 1000000.0 / CLOCKS_PER_SEC;
+
+    std::cout << "After: ";
+    for (size_t i = 0; i < this->vector.size(); ++i)
+        std::cout << this->vector[i] << " ";
+    std::cout << std::endl;
+
+    std::cout << std::fixed << std::setprecision(2);
+    std::cout << "Time to process a range of " << this->vec_before.size() 
+              << " elements with std::vector<int> : " << time << " us" << std::endl;
+
+    
 }
 
 

@@ -6,12 +6,18 @@
 #include <vector>
 #include <deque>
 #include <algorithm>
+#include <ctime>
+#include <iomanip>
 
 class PmergeMe
 {
     private:
+        std::vector<int> vec_before;
         std::vector<int> vector;
+
+        std::deque<int> deque_before;
         std::deque<int> deque;
+
 
     public:
     PmergeMe();
@@ -23,4 +29,5 @@ class PmergeMe
 
     void parsing (int ac, char **av);
     void Ford_Johnson();
+    void Run_Ford_Johnson();
 };
