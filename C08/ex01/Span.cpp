@@ -1,4 +1,6 @@
 #include "Span.hpp"
+#include <climits>
+#include <algorithm>
 
 Span::Span() : N(0), span() {}
 

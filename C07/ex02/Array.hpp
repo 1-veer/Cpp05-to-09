@@ -1,7 +1,6 @@
 #pragma once 
 #include <iostream>
-#include <stdexcept>
-#include <cstdlib>
+
 
 template <typename T>
 class Array
@@ -22,7 +21,7 @@ class Array
         {
             if (this != &other)
             {
-                //delete[] elements;
+                delete[] elements;
                 LeSize = other.LeSize;
                 elements = new T[LeSize]();
                 for (unsigned int i = 0; i < LeSize; i++)
