@@ -76,13 +76,12 @@ void PmergeMe::Ford_Johnson_vector()
         odd_one = this->vector.back();
 
     // std::vector<int> vec_before = this->vector;
-
-
+    
     for (std::vector<int>::iterator it = this->vector.begin(); it + 1 < this->vector.end(); it += 2)
     {
         pairs.push_back(std::make_pair(*it, *(it+1)));
     }
-    
+
     std::vector<int> main_chain;
     
     for (std::vector<std::pair<int, int> >::iterator it = pairs.begin(); it != pairs.end(); ++it) // sort pairs , larger first
@@ -152,6 +151,8 @@ void PmergeMe::Ford_Johnson_vector()
 
     this->vector = main_chain;
 }
+
+
 void PmergeMe::Ford_Johnson_deque()
 {
     if (this->deque.size() <= 1)
@@ -237,6 +238,7 @@ void PmergeMe::Ford_Johnson_deque()
 
     this->deque = main_chain;
 }
+
 
 void PmergeMe::Run_Ford_Johnson()
 {
